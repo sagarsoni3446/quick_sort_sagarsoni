@@ -54,10 +54,10 @@ function App() {
   return (
     <>
       <TopBar>
-        <div ref={displayCardRef}>
+        <DispalyButtonWrapper ref={displayCardRef}>
           <DisplayButton onClick={toggleOpen} />
           {isOpen && <DisplayCard />}
-        </div>
+        </DispalyButtonWrapper>
       </TopBar>
       {/* {data && <Card data={TempCardData} />} */}
       <Main>{renderedData}</Main>
@@ -88,5 +88,9 @@ const Main = styled.div`
     }
   }
 `;
+
+const DispalyButtonWrapper = styled.div`
+  width: fit-content;
+`
 
 export default App;
