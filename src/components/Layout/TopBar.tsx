@@ -13,6 +13,6 @@ const TopBarWrapper = styled.div`
   box-sizing: border-box;
   width: 100%;
   /* display: flex; */ // No Need for flex
-  padding: 1.5rem 3rem;
+  padding: 1.25rem 3rem;
   background-color: #ffffff;
 `;
