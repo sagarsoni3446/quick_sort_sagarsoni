@@ -34,7 +34,7 @@ export default function Card(props: CardProps) {
   const statusIcon = getStatusIcon(props.data.status);
 
   // Priority
-  const priorityIcon = getPriorityIcon(props.data.priority);
+  const priorityIcon = getPriorityIcon(props.data.priority, "#697077");
 
   return (
     <CardWrapper>

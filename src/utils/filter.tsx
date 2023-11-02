@@ -46,24 +46,24 @@ type ResultPriority = {
   tickets: Ticket[];
 };
 
-export function getStatusIcon(status: string) {
+export function getStatusIcon(status: string, color?: string) {
   switch (status) {
     case "Backlog":
-      return <LuCircleDashed color="gray" />;
+      return <LuCircleDashed color={color ? color : "gray"} />;
     case "Todo":
-      return <FaRegCircle color="gray" />;
+      return <FaRegCircle color={color ? color : "gray"} />;
     case "In progress":
-      return <PiCircleHalfFill color="#F1CA49" />;
+      return <PiCircleHalfFill color={color ? color : "#F1CA49"} />;
     case "Done":
-      return <MdCheckCircle color="#5E6AD2" />;
+      return <MdCheckCircle color={color ? color : "#5E6AD2"} />;
     case "Canceled":
-      return <BsFillXCircleFill color="gray" />;
+      return <BsFillXCircleFill color={color ? color : "gray"} />;
     default:
-      return <LuCircleDashed color="gray" />;
+      return <LuCircleDashed color={color ? color : "gray"} />;
   }
 }
 
-export function getPriorityIcon(index: number) {
+export function getPriorityIcon(index: number, color?: string) {
   switch (index) {
     case 1:
       return <img src={SignalLow} width={16} height={16} />;
@@ -72,9 +72,9 @@ export function getPriorityIcon(index: number) {
     case 3:
       return <img src={SignalHigh} width={16} height={16} />;
     case 4:
-      return <BsExclamationSquareFill color="#697077" />;
+      return <BsExclamationSquareFill color={color ? color : "#FC7840"} />;
     default:
-      return <BsThreeDots color="#697077" />;
+      return <BsThreeDots color={color ? color : "#697077"} />;
   }
 }
 
