@@ -168,6 +168,7 @@ const Title = styled.h1`
   font-size: 16px;
   font-weight: 600;
   color: #343a3f;
+  line-height: 1.2;
 `;
 
 const BottomLine = styled.div`
