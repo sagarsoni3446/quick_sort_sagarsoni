@@ -201,7 +201,7 @@ const Tag = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.3rem;
   padding: 0.3rem;
   border: 1px solid #c1c7cd;
   border-radius: 4px;
