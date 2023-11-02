@@ -7,6 +7,7 @@ import DisplayCard from "./components/Component/DisplayCard/DisplayCard";
 import { useEffect, useRef, useState } from "react";
 import { ColumnHeader } from "./components/Layout/Layout";
 import Card from "./components/Component/Card/Card";
+import CardsColumn from "./components/Layout/CardsColumn";
 
 function App() {
   const { dataToRender } = useContext(AppContext);
@@ -35,19 +36,21 @@ function App() {
 
   const renderedData = useMemo(() => {
     return dataToRender?.map((category) => (
-      <div className="column">
-        <ColumnHeader
-          icon={category.icon}
-          name={category.name}
-          count={category.tickets.length}
-          available={category.available}
-        />
-        <div className="column-cards">
-          {category.tickets.map((ticket) => (
-            <Card data={ticket} key={ticket.id} />
-          ))}
-        </div>
-      </div>
+      <CardsColumn>
+        <>
+          <ColumnHeader
+            icon={category.icon}
+            name={category.name}
+            count={category.tickets.length}
+            available={category.available}
+          />
+          <div className="column-cards">
+            {category.tickets.map((ticket) => (
+              <Card data={ticket} key={ticket.id} />
+            ))}
+          </div>
+        </>
+      </CardsColumn>
     ));
   }, [dataToRender]);
 
@@ -74,22 +77,22 @@ const Main = styled.div`
   /* width: 100vw; */
   overflow-x: scroll;
   min-height: calc(100vh - 66px); // ! Can be improved
-  .column {
+  /* .column {
     width: 20vw;
     min-width: 20vw;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    .column-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+  } */
+  .column-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 `;
 
 const DispalyButtonWrapper = styled.div`
   width: fit-content;
-`
+`;
 
 export default App;

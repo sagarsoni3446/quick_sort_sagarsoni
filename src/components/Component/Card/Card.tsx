@@ -86,6 +86,7 @@ const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  cursor: pointer;
 `;
 
 const IdLine = styled.div`
