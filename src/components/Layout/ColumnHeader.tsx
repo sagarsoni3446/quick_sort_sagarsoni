@@ -1,22 +1,32 @@
 import styled from "styled-components";
 import { BsThreeDots } from "react-icons/bs";
 import { BiPlus } from "react-icons/bi";
+import { BsCircleFill } from "react-icons/bs";
 
 interface ColumnHeaderProps {
   icon: JSX.Element;
   name: string;
   count: number;
+  available?: boolean;
 }
 
 export default function ColumnHeader({
   icon,
   name,
   count = 0,
+  available,
 }: ColumnHeaderProps) {
   return (
     <ColumnHeaderWrapper>
       <div className="left">
-        <div className="icon">{icon}</div>
+        <div className="icon">
+          {icon}
+          {available !== undefined && (
+            <div className="available-icon">
+              <BsCircleFill color={available ? "#FFB302" : "gray"} />
+            </div>
+          )}
+        </div>
         <Title>{name}</Title>
         <Count>{count}</Count>
       </div>
@@ -44,6 +54,22 @@ const ColumnHeaderWrapper = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
+      img {
+        width: 16px;
+        height: 16px;
+      }
+      .available-icon {
+        svg {
+          position: absolute;
+          width: 8px;
+          height: 8px;
+          right: -4px;
+          bottom: -4px;
+          border: 1px solid white;
+          border-radius: 50%;
+        }
+      }
     }
   }
   .right {
