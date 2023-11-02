@@ -59,7 +59,6 @@ function App() {
           {isOpen && <DisplayCard />}
         </DispalyButtonWrapper>
       </TopBar>
-      {/* {data && <Card data={TempCardData} />} */}
       <Main>{renderedData}</Main>
     </>
   );
@@ -74,7 +73,7 @@ const Main = styled.div`
   gap: 2rem;
   /* width: 100vw; */
   overflow-x: scroll;
-  min-height: calc(100vh - 74px);
+  min-height: calc(100vh - 66px); // ! Can be improved
   .column {
     width: 20vw;
     min-width: 20vw;
