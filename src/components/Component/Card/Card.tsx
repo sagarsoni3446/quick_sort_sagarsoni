@@ -38,12 +38,12 @@ export default function Card(props: CardProps) {
   const ordering = displayState.ordering;
 
   // User Image
-  const [image, setImage] = useState();
-  fetch(
-    `https://randomuser.me/api/?seed=${props.data.userId}`
-  )
-    .then((response) => response.json())
-    .then((res) => setImage(res.results[0].picture.thumbnail));
+  // const [image, setImage] = useState();
+  // fetch(
+  //   `https://randomuser.me/api/?seed=${props.data.userId}`
+  // )
+  //   .then((response) => response.json())
+  //   .then((res) => setImage(res.results[0].picture.thumbnail));
 
   const findUserById = (userId: string): User | undefined => {
     return data?.users.find((user) => user.id === userId);
@@ -79,9 +79,11 @@ export default function Card(props: CardProps) {
     <CardWrapper>
       <IdLine>
         <IdText>{props.data.id}</IdText>
-        {grouping.toString() !== "user" && image && (
+        {grouping.toString() !== "user" && (
           <UsrImgWrapper>
-            <UsrImg src={image}></UsrImg>
+            <UsrImg
+              src={`https://i.pravatar.cc/150?u=${props.data.userId}`}
+            ></UsrImg>
             <BsCircleFill
               color={
                 findUserById(props.data.userId)?.available ? "#FFB302" : "gray"
