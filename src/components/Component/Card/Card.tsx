@@ -58,7 +58,7 @@ export default function Card(props: CardProps) {
         <Title>{props.data.title}</Title>
       </TitleLine>
       <BottomLine>
-        {ordering.toString() !== "priority" && (
+        {grouping.toString() !== "priority" && (
           <PriorityImgWrapper>{priorityIcon}</PriorityImgWrapper>
         )}
         {props.data.tag && (
