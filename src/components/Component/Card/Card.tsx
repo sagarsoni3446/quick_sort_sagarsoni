@@ -56,7 +56,7 @@ export default function Card(props: CardProps) {
   } else if (props.data.status === "Todo") {
     statusIcon = <FaRegCircle color="gray" />;
   } else if (props.data.status === "In progress") {
-    statusIcon = <PiCircleHalfFill color="yellow" />;
+    statusIcon = <PiCircleHalfFill color="#F1CA49" />;
   } else if (props.data.status === "Done") {
     statusIcon = <MdCheckCircle color="dark blue" />;
   } else if (props.data.status === "Canceled") {

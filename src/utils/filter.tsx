@@ -53,7 +53,7 @@ function getStatusIcon(status: string) {
     case "Todo":
       return <FaRegCircle color="gray" />;
     case "In progress":
-      return <PiCircleHalfFill color="yellow" />;
+      return <PiCircleHalfFill color="#F1CA49" />;
     case "Done":
       return <MdCheckCircle color="dark blue" />;
     case "Canceled":
