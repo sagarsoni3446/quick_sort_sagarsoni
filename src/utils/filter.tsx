@@ -1,5 +1,5 @@
 import {
-  ContextProps as ContextPropsType,
+  // ContextProps as ContextPropsType,
   DisplayState as DisplayStateType,
 } from "../state/context";
 import { LuCircleDashed } from "react-icons/lu";
