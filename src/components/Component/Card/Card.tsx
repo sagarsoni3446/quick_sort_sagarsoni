@@ -33,24 +33,19 @@ type User = {
 };
 
 export default function Card(props: CardProps) {
-  // ! DEBUG
-  console.log(props);
-  // ! DEBUG
-
   const { data, displayState } = useContext(AppContext);
   const grouping = displayState.grouping;
   const ordering = displayState.ordering;
 
   // User Image
   const [image, setImage] = useState();
-  const imageFetch = fetch(
+  fetch(
     `https://randomuser.me/api/?seed=${props.data.userId}`
   )
     .then((response) => response.json())
     .then((res) => setImage(res.results[0].picture.thumbnail));
 
   const findUserById = (userId: string): User | undefined => {
-    console.log(data?.users.find((user) => user.id === userId));
     return data?.users.find((user) => user.id === userId);
   };
 

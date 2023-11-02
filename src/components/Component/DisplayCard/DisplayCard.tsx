@@ -30,7 +30,6 @@ export default function DisplayCard() {
       modifDisplayState.ordering = e.target.value as "priority" | "title";
     }
     setDisplayState({ ...displayState, ...modifDisplayState });
-    console.log(displayState);
   };
 
   return (

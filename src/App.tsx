@@ -31,16 +31,6 @@ function App() {
     };
   });
 
-  // Testing Data
-  const TempCardData = {
-    id: "CAM-1",
-    title: "Update User Profile Page UI",
-    tag: ["Feature request"],
-    userId: "usr-2",
-    status: "Todo",
-    priority: 4,
-  };
-
   return (
     <>
       <TopBar>
