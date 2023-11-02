@@ -24,7 +24,7 @@ type User = {
 export default function Card(props: CardProps) {
   const { data, displayState } = useContext(AppContext);
   const grouping = displayState.grouping;
-  const ordering = displayState.ordering;
+  // const ordering = displayState.ordering;
 
   const findUserById = (userId: string): User | undefined => {
     return data?.users.find((user) => user.id === userId);
