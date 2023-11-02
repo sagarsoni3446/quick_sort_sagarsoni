@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useCallback, useContext, useMemo } from "react";
 import styled from "styled-components";
 import { TopBar } from "./components/Layout/Layout";
 import { AppContext } from "./state/context";
@@ -14,7 +14,6 @@ function App() {
   // Checks for opening and closing based on mouse clicks
   const [isOpen, setIsOpen] = useState(false);
   const displayCardRef = useRef<HTMLDivElement | null>(null);
-
   const handleClickOutside = (e: MouseEvent) => {
     if (
       displayCardRef.current &&
@@ -23,6 +22,9 @@ function App() {
       setIsOpen(false);
     }
   };
+  const toggleOpen = useCallback(() => {
+    setIsOpen((prevState) => !prevState);
+  }, []);
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -31,31 +33,34 @@ function App() {
     };
   });
 
+  const renderedData = useMemo(() => {
+    return dataToRender?.map((category) => (
+      <div className="column">
+        <ColumnHeader
+          icon={category.icon}
+          name={category.name}
+          count={category.tickets.length}
+          available={category.available}
+        />
+        <div className="column-cards">
+          {category.tickets.map((ticket) => (
+            <Card data={ticket} key={ticket.id} />
+          ))}
+        </div>
+      </div>
+    ));
+  }, [dataToRender]);
+
   return (
     <>
       <TopBar>
         <div ref={displayCardRef}>
-          <DisplayButton onClick={() => setIsOpen(!isOpen)} />
+          <DisplayButton onClick={toggleOpen} />
           {isOpen && <DisplayCard />}
         </div>
       </TopBar>
       {/* {data && <Card data={TempCardData} />} */}
-      <Main>
-        {dataToRender?.map((category) => (
-          <div className="column">
-            <ColumnHeader
-              icon={category.icon}
-              name={category.name}
-              count={category.tickets.length}
-            />
-            <div className="column-cards">
-              {category.tickets.map((ticket) => (
-                <Card data={ticket} />
-              ))}
-            </div>
-          </div>
-        ))}
-      </Main>
+      <Main>{renderedData}</Main>
     </>
   );
 }
