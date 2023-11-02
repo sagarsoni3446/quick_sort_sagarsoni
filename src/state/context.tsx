@@ -27,12 +27,26 @@ export interface ContextProps {
       available: boolean;
     }[];
   } | null;
-  readonly setData: (data: object) => void;
-  dataToRender: object | null;
-  setDataToRender: (data: object) => void;
+  readonly setData: (data: ContextProps["data"]) => void;
+  dataToRender:
+    | {
+        icon: JSX.Element;
+        name: string;
+        available?: boolean;
+        tickets: {
+          id: string;
+          title: string;
+          tag: string[];
+          userId: string;
+          status: string;
+          priority: number;
+        }[];
+      }[]
+    | null;
+  setDataToRender: (data: ContextProps["dataToRender"]) => void;
   readonly displayState: DisplayState;
   readonly setDisplayState: (displayState: DisplayState) => void;
-  readonly loadData: () => Promise<void>;
+  // readonly loadData: () => Promise<void>;
 }
 
 export const AppContext = createContext<ContextProps>({
@@ -42,7 +56,7 @@ export const AppContext = createContext<ContextProps>({
   setDataToRender: () => null,
   displayState: initialDisplayState,
   setDisplayState: () => null,
-  loadData: async () => {},
+  // loadData: async () => {},
 });
 
 interface Props {
@@ -50,26 +64,28 @@ interface Props {
 }
 
 const AppProvider: React.FC<Props> = ({ children }) => {
-  const [data, setData] = useState<object | null>(null);
-  const [dataToRender, setDataToRender] = useState<object | null>(null);
+  const [data, setData] = useState<ContextProps["data"] | null>(null);
+  const [dataToRender, setDataToRender] = useState<
+    ContextProps["dataToRender"] | null
+  >(null);
   const [displayState, setDisplayState] =
     useState<DisplayState>(initialDisplayState);
 
-  const loadData = async () => {
-    try {
-      const response = await fetch(
-        "https://api.quicksell.co/v1/internal/frontend-assignment"
-      );
-      await response.json();
-      console.log(response);
+  // const loadData = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       "https://api.quicksell.co/v1/internal/frontend-assignment"
+  //     );
+  //     await response.json();
+  //     console.log(response);
 
-      if (response) {
-        setData(response);
-      }
-    } catch {
-      console.log("error");
-    }
-  };
+  //     if (response) {
+  //       setData(response);
+  //     }
+  //   } catch {
+  //     console.log("error");
+  //   }
+  // };
 
   const value = {
     data,
@@ -78,7 +94,7 @@ const AppProvider: React.FC<Props> = ({ children }) => {
     setDataToRender,
     displayState,
     setDisplayState,
-    loadData,
+    // loadData,
   };
 
   useEffect(() => {
@@ -92,6 +108,7 @@ const AppProvider: React.FC<Props> = ({ children }) => {
         return res.json();
       })
       .then((data) => {
+        console.log(data);
         setData(data);
       })
       .catch((err) => console.log(err));
