@@ -1,3 +1,29 @@
+<p align="center">
+    <img src="./Screenshot-1.png" width="800" alt="Screenshot" />
+</p>
+
+# QuickSell Assignment
+
+- Name: Amresh Prasad Sinha
+- Roll No.: 200122009
+- Email (College): s.amresh@iitg.ac.in
+- Email (Personal): theamresh.sinha@gmail.com
+- Hosted Site: https://quick-sell-assignment-amresh.vercel.app/
+
+# Usage
+
+- Install Packages
+
+  ```sh
+  yarn
+  ```
+- Run dev
+
+  ```sh
+  yarn dev
+  ```
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
