@@ -153,6 +153,39 @@ table {
 }
 
 body {
-  font-family: 'General Sans Variable', sans-serif;
-  background: #F4F5F8;
+  font-family: "General Sans Variable", sans-serif;
+  background: #f4f5f8;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  margin-right: 1rem;
+  position: absolute;
+  left: 0;
+  padding: 1rem;
+  /* width: 0px; */
+}
+
+::-webkit-scrollbar-track {
+  margin-right: 1rem;
+  position: absolute;
+  left: 0;
+  padding: 1rem;
+  background: rgba(126, 126, 126, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  margin-right: 1rem;
+  position: absolute;
+  left: 0;
+  padding: 1rem;
+  background: rgba(126, 126, 126, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  margin-right: 1rem;
+  position: absolute;
+  left: 0;
+  padding: 1rem;
+  background: rgba(126, 126, 126, 1);
 }
