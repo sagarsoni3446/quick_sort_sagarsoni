@@ -63,13 +63,21 @@ interface Props {
   children: React.ReactNode;
 }
 
+const LOCAL_STORAGE_KEY = "displayState";
+
 const AppProvider: React.FC<Props> = ({ children }) => {
   const [data, setData] = useState<ContextProps["data"] | null>(null);
   const [dataToRender, setDataToRender] = useState<
     ContextProps["dataToRender"] | null
   >(null);
-  const [displayState, setDisplayState] =
-    useState<DisplayState>(initialDisplayState);
+  // const [displayState, setDisplayState] =
+  //   useState<DisplayState>(initialDisplayState);
+  const [displayState, setDisplayState] = useState<DisplayState>(() => {
+    const storedDisplayState = localStorage.getItem(LOCAL_STORAGE_KEY);
+    return storedDisplayState
+      ? JSON.parse(storedDisplayState)
+      : initialDisplayState;
+  });
 
   // const loadData = async () => {
   //   try {
@@ -113,6 +121,10 @@ const AppProvider: React.FC<Props> = ({ children }) => {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(displayState));
+  }, [displayState]);
 
   useEffect(() => {
     console.log("filter function debug");
