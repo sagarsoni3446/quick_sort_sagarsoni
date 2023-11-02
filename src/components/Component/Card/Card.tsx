@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { AppContext } from "../../../state/context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { LuCircleDashed } from "react-icons/lu";
 import { PiCircleHalfFill } from "react-icons/pi";
 import { MdCheckCircle } from "react-icons/md";
