@@ -72,7 +72,7 @@ const Main = styled.div`
   flex-direction: row;
   flex-wrap: no-wrap;
   gap: 2rem;
-  width: 100vw;
+  /* width: 100vw; */
   overflow-x: scroll;
   min-height: calc(100vh - 74px);
   .column {
