@@ -162,7 +162,7 @@ export default function filter(data: DataType, displayState: DisplayStateType) {
           available: user.available,
           icon: (
             <img
-              src={`https://i.pravatar.cc/150?u=${user.name}`}
+              src={`https://i.pravatar.cc/150?u=${user.id}`}
               style={{ borderRadius: "50%" }}
             />
           ),
