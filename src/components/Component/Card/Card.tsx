@@ -1,19 +1,8 @@
 import styled from "styled-components";
 import { AppContext } from "../../../state/context";
 import { useContext } from "react";
-import { LuCircleDashed } from "react-icons/lu";
-import { PiCircleHalfFill } from "react-icons/pi";
-import { MdCheckCircle } from "react-icons/md";
-import { FaRegCircle } from "react-icons/fa";
-import {
-  BsFillXCircleFill,
-  BsThreeDots,
-  BsExclamationSquareFill,
-  BsCircleFill,
-} from "react-icons/bs";
-import SignalHigh from "../../../assets/icons/SignalHigh.svg";
-import SignalMedium from "../../../assets/icons/SignalMedium.svg";
-import SignalLow from "../../../assets/icons/SignalLow.svg";
+import { BsCircleFill } from "react-icons/bs";
+import { getPriorityIcon, getStatusIcon } from "../../../utils/filter";
 
 interface CardProps {
   data: {
@@ -37,43 +26,15 @@ export default function Card(props: CardProps) {
   const grouping = displayState.grouping;
   const ordering = displayState.ordering;
 
-  // User Image
-  // const [image, setImage] = useState();
-  // fetch(
-  //   `https://randomuser.me/api/?seed=${props.data.userId}`
-  // )
-  //   .then((response) => response.json())
-  //   .then((res) => setImage(res.results[0].picture.thumbnail));
-
   const findUserById = (userId: string): User | undefined => {
     return data?.users.find((user) => user.id === userId);
   };
 
   // Status
-  let statusIcon = <LuCircleDashed color="gray" />;
-  if (props.data.status === "Backlog") {
-    statusIcon = <LuCircleDashed color="gray" />;
-  } else if (props.data.status === "Todo") {
-    statusIcon = <FaRegCircle color="gray" />;
-  } else if (props.data.status === "In progress") {
-    statusIcon = <PiCircleHalfFill color="#F1CA49" />;
-  } else if (props.data.status === "Done") {
-    statusIcon = <MdCheckCircle color="dark blue" />;
-  } else if (props.data.status === "Canceled") {
-    statusIcon = <BsFillXCircleFill color="gray" />;
-  }
+  const statusIcon = getStatusIcon(props.data.status);
 
   // Priority
-  let priorityIcon = <BsThreeDots color="#697077" />;
-  if (props.data.priority === 1) {
-    priorityIcon = <img src={SignalLow} width={16} height={16} />;
-  } else if (props.data.priority === 2) {
-    priorityIcon = <img src={SignalMedium} width={16} height={16} />;
-  } else if (props.data.priority === 3) {
-    priorityIcon = <img src={SignalHigh} width={16} height={16} />;
-  } else if (props.data.priority === 4) {
-    priorityIcon = <BsExclamationSquareFill color="#697077" />;
-  }
+  const priorityIcon = getPriorityIcon(props.data.priority);
 
   return (
     <CardWrapper>

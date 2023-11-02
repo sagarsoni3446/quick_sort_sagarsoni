@@ -46,7 +46,7 @@ type ResultPriority = {
   tickets: Ticket[];
 };
 
-function getStatusIcon(status: string) {
+export function getStatusIcon(status: string) {
   switch (status) {
     case "Backlog":
       return <LuCircleDashed color="gray" />;
@@ -55,7 +55,7 @@ function getStatusIcon(status: string) {
     case "In progress":
       return <PiCircleHalfFill color="#F1CA49" />;
     case "Done":
-      return <MdCheckCircle color="dark blue" />;
+      return <MdCheckCircle color="#5E6AD2" />;
     case "Canceled":
       return <BsFillXCircleFill color="gray" />;
     default:
@@ -63,7 +63,7 @@ function getStatusIcon(status: string) {
   }
 }
 
-function getPriorityIcon(index: number) {
+export function getPriorityIcon(index: number) {
   switch (index) {
     case 1:
       return <img src={SignalLow} width={16} height={16} />;
