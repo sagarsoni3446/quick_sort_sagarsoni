@@ -75,6 +75,7 @@ const DisplayCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  z-index: 2;
 
   padding: 1rem 1rem;
   background: #fafafa;
@@ -99,7 +100,7 @@ const DisplayCardWrapper = styled.div`
 
       .arrow-down {
         position: absolute;
-        z-index: 0;
+        /* z-index: 0; */
         right: 0rem;
         top: 0.3rem;
         color: #494949;
