@@ -54,7 +54,7 @@ export default function Card(props: CardProps) {
         )}
       </IdLine>
       <TitleLine>
-        {grouping.toString() !== "status" && <div>{statusIcon}</div>}
+        {grouping.toString() !== "status" && <div className="status-icon">{statusIcon}</div>}
         <Title>{props.data.title}</Title>
       </TitleLine>
       <BottomLine>
@@ -121,8 +121,11 @@ const UsrImg = styled.img`
 
 const TitleLine = styled.div`
   display: flex;
-  align-items: center;
+  /* align-items: center; */ 
   gap: 0.5rem;
+  .status-icon {
+    margin-top: 0.1rem; // To push the icon to the same level as the text
+  }
 `;
 
 const Title = styled.h1`
