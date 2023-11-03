@@ -93,7 +93,11 @@ const AppProvider: React.FC<Props> = ({ children }) => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+
+        // !DEBUG Line
+        // console.log(data);
+        // !DEBUG Line
+
         setData(data);
       })
       .catch((err) => console.log(err));
@@ -104,8 +108,12 @@ const AppProvider: React.FC<Props> = ({ children }) => {
   }, [displayState]);
 
   useEffect(() => {
-    console.log("filter function debug");
-    data && console.log(filter(data, displayState));
+
+    // !DEBUG Line
+    // console.log("filter function debug");
+    // data && console.log(filter(data, displayState));
+    // !DEBUG Line
+
     setDataToRender(data && filter(data, displayState));
   }, [data, displayState]);
 
