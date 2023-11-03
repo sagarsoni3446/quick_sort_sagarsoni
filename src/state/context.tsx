@@ -46,7 +46,6 @@ export interface ContextProps {
   setDataToRender: (data: ContextProps["dataToRender"]) => void;
   readonly displayState: DisplayState;
   readonly setDisplayState: (displayState: DisplayState) => void;
-  // readonly loadData: () => Promise<void>;
 }
 
 export const AppContext = createContext<ContextProps>({
@@ -56,7 +55,6 @@ export const AppContext = createContext<ContextProps>({
   setDataToRender: () => null,
   displayState: initialDisplayState,
   setDisplayState: () => null,
-  // loadData: async () => {},
 });
 
 interface Props {
@@ -70,30 +68,12 @@ const AppProvider: React.FC<Props> = ({ children }) => {
   const [dataToRender, setDataToRender] = useState<
     ContextProps["dataToRender"] | null
   >(null);
-  // const [displayState, setDisplayState] =
-  //   useState<DisplayState>(initialDisplayState);
   const [displayState, setDisplayState] = useState<DisplayState>(() => {
     const storedDisplayState = localStorage.getItem(LOCAL_STORAGE_KEY);
     return storedDisplayState
       ? JSON.parse(storedDisplayState)
       : initialDisplayState;
   });
-
-  // const loadData = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       "https://api.quicksell.co/v1/internal/frontend-assignment"
-  //     );
-  //     await response.json();
-  //     console.log(response);
-
-  //     if (response) {
-  //       setData(response);
-  //     }
-  //   } catch {
-  //     console.log("error");
-  //   }
-  // };
 
   const value = {
     data,
@@ -102,12 +82,9 @@ const AppProvider: React.FC<Props> = ({ children }) => {
     setDataToRender,
     displayState,
     setDisplayState,
-    // loadData,
   };
 
   useEffect(() => {
-    // loadData();
-
     fetch("https://api.quicksell.co/v1/internal/frontend-assignment")
       .then((res) => {
         if (!res.ok) {

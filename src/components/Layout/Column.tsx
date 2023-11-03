@@ -4,7 +4,7 @@ interface ColumnProps {
     children: JSX.Element;
 }
 
-export default function CardsColumn({ children }: ColumnProps) {
+export default function Column({ children }: ColumnProps) {
 
     return (
         <ColumnWrapper id="column-layout">

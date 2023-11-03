@@ -7,7 +7,7 @@ import DisplayCard from "./components/Component/DisplayCard/DisplayCard";
 import { useEffect, useRef, useState } from "react";
 import { ColumnHeader } from "./components/Layout/Layout";
 import Card from "./components/Component/Card/Card";
-import CardsColumn from "./components/Layout/CardsColumn";
+import Column from "./components/Layout/Column";
 
 function App() {
   const { dataToRender } = useContext(AppContext);
@@ -36,7 +36,7 @@ function App() {
 
   const renderedData = useMemo(() => {
     return dataToRender?.map((category) => (
-      <CardsColumn>
+      <Column>
         <>
           <ColumnHeader
             icon={category.icon}
@@ -50,7 +50,7 @@ function App() {
             ))}
           </div>
         </>
-      </CardsColumn>
+      </Column>
     ));
   }, [dataToRender]);
 
