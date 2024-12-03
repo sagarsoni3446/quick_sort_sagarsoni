@@ -4,10 +4,10 @@
 
 # QuickSell Assignment
 
-- Name: Amresh Prasad Sinha
-- Roll No.: 200122009
-- Email (College): s.amresh@iitg.ac.in
-- Email (Personal): theamresh.sinha@gmail.com
+- Name: Sagar soni
+- Roll No.: 20EC39030
+- Email (College): sagarsoni31012003@kgpian.iitkgp.ac.in
+- Email (Personal): sagarsoni8461@gmail.com
 - Hosted Site: https://quick-sell-assignment-amresh.vercel.app/
 
 # Usage
