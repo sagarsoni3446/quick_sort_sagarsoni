@@ -4,7 +4,7 @@
 
 # QuickSell Assignment
 
-- Name: Sagar soni
+- Name: Sagar Soni
 - Roll No.: 20EC39030
 - Email (College): sagarsoni31012003@kgpian.iitkgp.ac.in
 - Email (Personal): sagarsoni8461@gmail.com
